@@ -7,10 +7,21 @@ const myLoadTime = 2000;
 let myData = null;
 
 
-
+myData = fetchData();
 
 // din kode her 
-
+const gallery = document.getElementById('app')
+let html = "";
+myData.forEach((galleri) => {
+    html += 
+    `<article class = "galleryCard">
+    <h2>${galleri.name}</h2>
+    <img src="${galleri.picture}" alt="">
+    <p>${galleri.shortDescription}</p>
+    </article>`
+});
+gallery.innerHTML = html;
+console.log(gallery)
 
 
 
@@ -18,9 +29,9 @@ let myData = null;
 
 /*  get data function  DO NOT TOUCH!!!!! ......................................................*/
 
- function fetchData() {
+function fetchData() {
     // data object
- 
+
     const myData = [
 
         {
@@ -58,7 +69,7 @@ let myData = null;
             shortDescription: 'Carcharodon carcharias, også kendt som en hvidhaj.'
         }
     ];
-   return  myData
+    return myData
 
 }
 
